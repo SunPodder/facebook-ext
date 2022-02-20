@@ -1,20 +1,26 @@
 {
-  if(window.location.href.startsWith("https://m.facebook.com/messages/read/")){
-    let input = document.querySelector("#composerInput")
-    let form = document.querySelector("form")
-    let i = 0
+  setTimeout(function(){
+    if(window.location.href.startsWith("https://m.facebook.com/messages/read/")){
+      let input = document.querySelector("#composerInput")
+      let submitBtn = document.getElementsByName("send")[0]
+      let i = 1
+      
+      let interval = setInterval(sendMsg, 800)
     
-    let interval = setInterval(sendMsg, 1500)
-  
-    function sendMsg(){
-      input.value = `Test ${i}`
-      setTimeout(function(){ form.submit() }, 1000)
-      i++
-      if(i == 10) stop()
+      function sendMsg(){
+        input.value = `Test ${i}`
+        setTimeout(function(){
+          submitBtn.disabled = false
+          console.log(input.value)
+          if(input.value != "") submitBtn.click()
+          i++
+          if(i == 5) stop()
+        }, 1200)
+      }
+    
+      function stop(){
+        clearInterval(interval)
+      }
     }
-  
-    function stop(){
-      clearInterval(interval)
-    }
-  }
+  }, 2000)
 }
