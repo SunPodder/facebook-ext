@@ -1,0 +1,1 @@
+am start --user 0 -android.intent.action.VIEW -n com.kiwibrowser.browser/com.google.android.apps.chrome.Main -d "PASTE THE LINK OF THE CONVERSATION"

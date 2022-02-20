@@ -1,0 +1,22 @@
+{
+  "name": "Facebook",
+  "description": "Facebook Auto Message Sender",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.facebook.com/messages/read/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["https://*.facebook.com/*", "tabs"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
