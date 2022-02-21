@@ -6,7 +6,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://*.facebook.com/messages/read/*"
+        "https://*.facebook.com/messages/read/*",
+        "https://*.facebook.com/home.php*"
       ],
       "js": ["content.js"],
       "run_at": "document_end"
